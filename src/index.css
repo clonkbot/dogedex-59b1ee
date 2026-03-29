@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(251, 191, 36, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #f59e0b, #ea580c);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #d97706, #c2410c);
+}
+
+/* Hide scrollbar for filter buttons */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(-5deg);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 7s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out;
+}
+
+/* Gradient text support */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Mobile viewport fix */
+@supports (height: 100dvh) {
+  .min-h-screen {
+    min-height: 100dvh;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) {
+  .hover\:scale-110:active {
+    transform: scale(1.05);
+  }
+
+  .hover\:-translate-y-2:active {
+    transform: translateY(-4px);
+  }
+}
+
+/* Smooth page transitions */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Card hover effects */
+.group:hover .group-hover\:scale-110 {
+  transform: scale(1.1);
+}
+
+/* Focus styles for accessibility */
+input:focus,
+button:focus {
+  outline: none;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
